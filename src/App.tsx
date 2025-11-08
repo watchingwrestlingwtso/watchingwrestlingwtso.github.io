@@ -1,15 +1,20 @@
-import PlaylistEmbed from "./components/PlaylistEmbed";
+// src/App.tsx
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import WrestlingEdits from "./pages/WrestlingEdits";
+import MatchEdits from "./pages/MatchEdits";
+import OtherEdits from "./pages/OtherEdits";
 
-function App() {
+export default function App(){
   return (
-    <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "20px" }}>
-      <h1>Watching Wrestling WTSO Edit Archive</h1>
-
-      <PlaylistEmbed playlistId="PLGdFgcAqkiX74opSmlCPsBgbzwl_2va_9" />
-    </div>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/wrestling" element={<WrestlingEdits/>} />
+        <Route path="/matches" element={<MatchEdits/>} />
+        <Route path="/other" element={<OtherEdits/>} />
+      </Routes>
+    </Layout>
   );
 }
-
-export default App;
-
-
